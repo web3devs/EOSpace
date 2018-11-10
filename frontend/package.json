@@ -1,11 +1,26 @@
 {
-  "name": "EOSpace",
-  "version": "1.0.0",
-  "main": "server.js",
-  "repository": "https://github.com/web3devs/EOSpace.git",
-  "author": "Web3Devs",
-  "license": "MIT",
+  "name": "eospaces",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "eosjs": "^20.0.0-beta2"
-  }
+    "eosjs": "^16.0.9",
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
+    "react-scripts": "2.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
