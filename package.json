@@ -1,0 +1,11 @@
+{
+  "name": "EOSpace",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/web3devs/EOSpace.git",
+  "author": "Web3Devs",
+  "license": "MIT",
+  "dependencies": {
+    "eosjs": "^20.0.0-beta2"
+  }
+}
