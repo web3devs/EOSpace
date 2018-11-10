@@ -5,20 +5,23 @@ class survey : public eosio::contract
 {
   public:
     using contract::contract;
-/// @abi action
+
+    [[eosio::action]]
     void csurvey() 
     {
       print("your call to csurvey");
     }
-/// @abi action
+
+    [[eosio::action]]
     void add() 
     {
       print("your call to add");
     }
-/// @abi action
+
+    [[eosio::action]]
     void result()
     {
       print("your call to result");
     }
 };
-EOSIO_ABI( survey, (csurvey) (add) (result) )
+EOSIO_DISPATCH( survey, (csurvey) (add) (result) )
