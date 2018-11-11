@@ -12,6 +12,8 @@ import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
+import ButtonTray from './ButtonTray';
+
 
 export default class Polls extends React.Component {
   constructor(props) {
@@ -19,12 +21,30 @@ export default class Polls extends React.Component {
   }
 
   // generate button tray
+  generateButtons = () => {
+
+  }
 
   render() {
+    const props = this.props;
     return (
       <div>
         <Card>
-
+          <CardContent>
+            {/* title */}
+            <Typography variant="headline" component="h2">
+              {props.title}
+            </Typography>
+            {/* text */}
+            <Typography style={{fontSize:12}} color="textSecondary" gutterBottom>
+              {props.text}
+            </Typography>
+            {/* buttons */}
+            <ButtonTray
+              action={props.actionName}
+              options={props.options}
+            />
+          </CardContent>
         </Card>
       </div>
     );
@@ -32,4 +52,12 @@ export default class Polls extends React.Component {
 }
 
 Polls.propTypes = {
+  pollDataObject: PropTypes.shape({
+    title: PropTypes.string,
+    text: PropTypes.string,
+    actionName: PropTypes.string,
+    // buttons
+    options: PropTypes.array,
+    vote: PropTypes.string,
+  }).isRequired
 };

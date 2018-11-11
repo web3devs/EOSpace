@@ -33,13 +33,13 @@ const styles = theme => ({
     margin: 20,
   },
   paper: {
-   ...theme.mixins.gutters(),
-   paddingTop: theme.spacing.unit * 2,
-   paddingBottom: theme.spacing.unit * 2,
+     ...theme.mixins.gutters(),
+     paddingTop: theme.spacing.unit * 2,
+     paddingBottom: theme.spacing.unit * 2,
   },
   formButton: {
-   marginTop: theme.spacing.unit,
-   width: "100%",
+     marginTop: theme.spacing.unit,
+     width: "100%",
   },
   pre: {
    background: "#ccc",
@@ -54,7 +54,7 @@ class EosBoilerplate extends Component {
 constructor(props) {
   super(props)
   this.state = {
-   noteTable: [] // to store the table rows from smart contract
+    noteTable: [] // to store the table rows from smart contract
   };
   this.handleFormEvent = this.handleFormEvent.bind(this);
 }
@@ -190,8 +190,8 @@ async handleFormEvent(event) {
            margin="normal"
            multiline
            rows="10"
-             fullWidth
-           />
+           fullWidth
+         />
            <Button
              variant="contained"
              color="primary"
