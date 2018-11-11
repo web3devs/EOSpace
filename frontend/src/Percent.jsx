@@ -19,7 +19,10 @@ export default class Vote extends Component {
 
   render() {
     return (
-      <div style={{ height: 200 }} className="col">
+      <div
+        // style={{ height: 200 }}
+        className="col percent"
+      >
         Percent of Total Users
         {/* <Button>
           {this.props.option.text}

@@ -44,33 +44,38 @@ class LoginCard extends Component {
       <div>
         <Card>
           <CardContent>
+
             <Typography variant="headline" component="h2">
               Login
             </Typography>
-            <TextField
-              name="userName"
-              autoComplete="off"
-              label="User Name"
-              margin="normal"
-              // fullWidth
-            />
-            <TextField
-              name="password"
-              autoComplete="off"
-              label="Password"
-              margin="normal"
-              // fullWidth
-            />
-            <Button
-              onClick={event => this.props.login('User')}
-            >
-              Login as User
-            </Button>
-            <Button
-              onClick={event => this.props.login('Owner')}
-            >
-              Login as Owner
-            </Button>
+            <div className="row-sa">
+              <TextField
+                name="userName"
+                autoComplete="off"
+                label="User Name"
+                margin="normal"
+                // fullWidth
+              />
+              <TextField
+                name="password"
+                autoComplete="off"
+                label="Password"
+                margin="normal"
+                // fullWidth
+              />
+            </div>
+            <div className="row-sa">
+              <Button
+                onClick={event => this.props.login('User')}
+              >
+                Login as User
+              </Button>
+              <Button
+                onClick={event => this.props.login('Owner')}
+              >
+                Login as Owner
+              </Button>
+            </div>
           </CardContent>
         </Card>
       </div>

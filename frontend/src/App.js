@@ -62,6 +62,7 @@ class App extends Component {
           {/* login button */}
           { this.state.group &&
             <Button
+              style={{ color: "#7B8276", fontWeight: 600 }}
               onClick={this.logout}
             >
               Logout
