@@ -11,36 +11,32 @@ class [[eosio::contract]] survey : public eosio::contract
     survey(name receiver, name code,  datastream<const char*> ds): contract(receiver, code, ds) {}
 
     [[eosio::action]]
-    void upsert(name user, std::string question) {
-      require_auth( user );
-      poll_index questions(_code, _code.value);
-      auto iterator = questions.find(user.value);
-      if( iterator == questions.end() )
-      {
-        questions.emplace(user, [&]( auto& row ) {
-          row.key = user;
-          row.question = question;
-        });
-      }
-      else {
-        std::string changes;
-        questions.modify(iterator, user, [&]( auto& row ) {
-          row.key = user;
-          row.question = question;
-        });
-      }
-    }
+    void upsert(name user, std::string accountname, std::string question) {
 
+      poll_index questions(_code, _code.value);
+
+        questions.emplace(user, [&]( auto& row ) {
+          row.key = questions.available_primary_key();
+          row.accountname = accountname;
+          row.question = question;
+        });
+      
+    }
 
   private:
     struct [[eosio::table]] poll {
-      name key;
+      uint64_t key;
+      std::string accountname;
       std::string question;
 
-      uint64_t primary_key() const { return key.value;}
+      uint64_t primary_key() const { return key;}
+      std::string by_name() const { return accountname;}
     };
-  
+
     typedef eosio::multi_index<"poll"_n, poll> poll_index;
+
+
+
    
 };
 EOSIO_DISPATCH( survey, (upsert))
