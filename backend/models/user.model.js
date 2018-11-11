@@ -9,7 +9,4 @@ var UserSchema = new mongoose.Schema({
 
 // UserSchema.plugin(passportLocalMongoose);
 
-// THIS associates the BlockSchema with mongoose
-const User = mongoose.model('user', UserSchema);
-
 module.exports = mongoose.model("User", UserSchema);
