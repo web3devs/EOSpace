@@ -14,30 +14,26 @@ class [[eosio::contract]] survey : public eosio::contract
     void upsert(name user, std::string question) {
       require_auth( user );
       poll_index questions(_code, _code.value);
-      auto iterator = questions.find(user.value);
-      if( iterator == questions.end() )
-      {
+
         questions.emplace(user, [&]( auto& row ) {
-          row.key = user;
+          row.key = questions.available_primary_key();
+          row.accountname = user;
           row.question = question;
         });
-      }
-      else {
-        std::string changes;
-        questions.modify(iterator, user, [&]( auto& row ) {
-          row.key = user;
-          row.question = question;
-        });
-      }
+      
     }
+
+    [[eosio::action]]
+    void somethingelse() {}
 
 
   private:
     struct [[eosio::table]] poll {
-      name key;
+      uint64_t key;
+      name accountname;
       std::string question;
 
-      uint64_t primary_key() const { return key.value;}
+      uint64_t primary_key() const { return key;}
     };
   
     typedef eosio::multi_index<"poll"_n, poll> poll_index;
