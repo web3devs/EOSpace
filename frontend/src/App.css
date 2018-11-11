@@ -8,9 +8,9 @@
 } */
 
 .App-header {
-  background-color: #585858;
+  background-color: #24292e;
   height: 15vh;
-  background: #75111154 url('http://blockchain901.brianwentzloff.com/wp-content/uploads/2018/08/blockchain901.png') 50% 50%/500px 300px no-repeat;
+  background: #24292e url('http://blockchain901.brianwentzloff.com/wp-content/uploads/2018/08/blockchain901.png') 50% 50%/500px 300px no-repeat;
   align-items: center;
   justify-content: space-between;
   font-size: calc(10px + 2vmin);
