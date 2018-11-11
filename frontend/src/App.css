@@ -44,9 +44,15 @@
   text-overflow: ellipsis;
 }
 
+.row {
+  /* height: 150px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 .col {
-  height: 150px;
+  /* height: 150px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
