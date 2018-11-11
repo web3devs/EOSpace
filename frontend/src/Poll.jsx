@@ -21,12 +21,12 @@ export default class Polls extends React.Component {
   }
 
   // generate button tray
-  generateButtons = () => {
-
-  }
+  // generateButtons = () => {
+  //
+  // }
 
   render() {
-    const props = this.props;
+    const props = this.props.pollDataObject;
     return (
       <div>
         <Card>

@@ -11,6 +11,8 @@ import Button from '@material-ui/core/Button';
 
 import Poll from './Poll';
 
+const endpoint = 'http://localhost:8888';
+
 export default class PollList extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +24,7 @@ export default class PollList extends React.Component {
   }
 
   componentDidMount() {
-    this.getPolls(this.props.accountName);
+    this.getPolls(this.props.accountInfo);
   }
 
   // componentDidUpdate(prevProps, prevState) {
@@ -30,6 +32,18 @@ export default class PollList extends React.Component {
   //
   //   }
   // }
+
+  // getTable() {
+  //   const rpc = new JsonRpc(endpoint);
+  //   rpc.get_table_rows({
+  //     "json": true,
+  //     "code": "notechainacc",   // contract who owns the table
+  //     "scope": "notechainacc",  // scope of the table
+  //     "table": "notestruct",    // name of the table as specified by the contract abi
+  //     "limit": 100,
+  //   }).then(result => this.setState({ noteTable: result.rows }));
+  // }
+
 
   // get polls for this user
   async getPolls(accountName) {
@@ -62,8 +76,45 @@ export default class PollList extends React.Component {
     // }
     /* contract ^^^^^ */
     /* testing vvvvv */
+    let pollDataArray = [
+      {
+        title: 'y/n example',
+        text: 'simplest poll',
+        actionName: 'yesNoAction',
+        // buttons
+        options: [
+          { text: 'yes', value: true },
+          { text: 'no', value: false }
+        ],
+        vote: null,
+      },
+      {
+        title: 'multiple choice ',
+        text: 'multiple choice example poll',
+        actionName: 'multipleChoice',
+        // buttons
+        options: [
+          { text: 'A', value: 'A' },
+          { text: 'B', value: 'B' },
+          { text: 'C', value: 'C' },
+          { text: 'D', value: 'D' }
+        ],
+        vote: null,
+      },
+      {
+        title: 'y/n example',
+        text: 'simplest poll',
+        actionName: 'yesNoAction',
+        // buttons
+        options: [
+          { text: 'yes', value: true },
+          { text: 'no', value: false }
+        ],
+        vote: null,
+      },
+    ]
     this.setState({
-
+      pollDataArray: pollDataArray
     });
   }
 
@@ -71,22 +122,22 @@ export default class PollList extends React.Component {
   generatePollList = () => {
     let pollList = "";
     if (this.state.pollDataArray !== null) {
-      this.state.pollDataArray.map((dataObject) => {
-        pollList = <Poll
-          
+      pollList = this.state.pollDataArray.map((dataObject) => {
+        return <Poll
+          pollDataObject={dataObject}
         />
       })
     } else {
       pollList =  'Loading...'
     }
-
+    return pollList;
   }
 
   render() {
     return (
       <div>
-        {/* list current polls */}
-        {this.generatePollList}
+        list current polls
+        {this.generatePollList()}
       </div>
     );
   }

@@ -13,6 +13,8 @@ import EosBoilerplate from './eosBoilerplate';
 import PollList from './PollList';
 import LoginCard from './LoginCard';
 
+
+
 class App extends Component {
   constructor(props) {
     super(props);
