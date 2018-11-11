@@ -87,6 +87,15 @@
   margin-top: 30px;
 }
 
+.thin-gray-card {
+  margin: auto;
+  width: 50%;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  color: #d9d9d9;
+  background-color: #f9fafc;
+}
+
 .thin-buttons {
   margin: auto;
   width: 60%;
@@ -95,4 +104,9 @@
 .button-tray {
   margin: auto;
   width: 60%;
+}
+
+.gray-out {
+  color: #d9d9d9;
+  background-color: #f9fafc;
 }

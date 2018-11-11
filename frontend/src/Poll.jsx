@@ -18,6 +18,9 @@ import ButtonTray from './ButtonTray';
 export default class Polls extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      selected: false
+    }
   }
 
   // generate button tray
@@ -25,27 +28,48 @@ export default class Polls extends React.Component {
   //
   // }
 
+  selected = () => {
+    this.setState({
+      selected: true
+    })
+  }
+
   render() {
     const props = this.props.pollDataObject;
+    let cardStyle = "thin-card"
+    // let buttonStyle = ""
+    if (this.state.selected) {
+      cardStyle = "thin-gray-card"
+      // buttonStyle = "ghost"
+    }
     return (
-      <div>
-        <Card classes={{
-          root: 'thin-card',
-           }
-        }>
-          <CardContent>
+      <div
+        // className={`${cardStyle}`}
+        >
+        <Card classes={{ root: "thin-card" }}
+           // style={ (this.state.selected ? {color: "#d9d9d9"} : {}) }
+        >
+          <CardContent
+            // style={ (this.state.selected ? {color: "#d9d9d9"} : {}) }
+          >
 
-            <Typography variant="headline" component="h2">
+            <Typography variant="headline" component="h2"
+              style={ (this.state.selected ? {color: "#d9d9d9"} : {}) }
+            >
               {props.title}
             </Typography>
 
-            <Typography style={{fontSize:12}} color="textSecondary" gutterBottom>
+            <Typography style={{fontSize:12}}
+              style={ (this.state.selected ? { fontSize:12, color: "#d9d9d9" } : { fontSize:12, color: "textSecondary" })}
+              gutterBottom
+            >
               {props.text}
             </Typography>
 
             <ButtonTray
               action={props.actionName}
               options={props.options}
+              selected={this.selected}
             />
           </CardContent>
         </Card>

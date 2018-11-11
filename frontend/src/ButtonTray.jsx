@@ -9,6 +9,10 @@ import Button from '@material-ui/core/Button';
 export default class ButtonTray extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      buttonColor: "primary"
+    }
   }
 
   async fireAction(action, value) {
@@ -64,6 +68,8 @@ export default class ButtonTray extends React.Component {
     //      console.log(JSON.stringify(e.json, null, 2));
     //    }
     //  }
+    this.props.selected();
+    this.setState({ buttonColor: "disabled" })
   }
 
   // map over options - create buttons
@@ -73,7 +79,7 @@ export default class ButtonTray extends React.Component {
       return <Button
         key={option.text}
         variant="contained"
-        color="primary"
+        color={this.state.buttonColor}
         // className={classes.formButton}
         onClick={event => this.fireAction(this.props.action, option.value)}
       >
@@ -84,9 +90,10 @@ export default class ButtonTray extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
+
     return (
-      <div className="button-tray">
+      <div className="row">
         {this.generateButtons()}
       </div>
     );

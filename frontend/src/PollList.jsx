@@ -25,8 +25,8 @@ export default class PollList extends React.Component {
   }
 
   componentDidMount() {
-    //this.getPolls(this.props.accountInfo);
-    this.getTable();
+    this.getPolls(this.props.accountInfo); // UI testing
+    // this.getTable();
   }
 
   // componentDidUpdate(prevProps, prevState) {
@@ -73,7 +73,7 @@ export default class PollList extends React.Component {
               vote: null,
             }
             pollDataArray.push(pollDataItem);
-            
+
         }
         this.setState({
           pollDataArray: pollDataArray
@@ -115,9 +115,9 @@ export default class PollList extends React.Component {
     /* contract ^^^^^ */
     /* testing vvvvv */
 
-    /*this.setState({
+    this.setState({
       pollDataArray: pollDataArray
-    });*/
+    });
   }
 
   // generate list
