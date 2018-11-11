@@ -9,12 +9,12 @@ import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
-import Poll from './Poll';
-import { pollDataArray } from './data';
+import PollReportCard from './PollReportCard';
+import { pollReportData } from './data';
 
 const endpoint = 'http://localhost:8888';
 
-export default class PollList extends React.Component {
+export default class PollReportList extends React.Component {
   constructor(props) {
     super(props);
 
@@ -75,12 +75,11 @@ export default class PollList extends React.Component {
     //     console.log(JSON.stringify(e.json, null, 2));
     //   }
     // }
-
     /* contract ^^^^^ */
     /* testing vvvvv */
 
     this.setState({
-      pollDataArray: pollDataArray
+      pollReportData: pollReportData
     });
   }
 
@@ -88,9 +87,9 @@ export default class PollList extends React.Component {
   generatePollList = () => {
     let pollList = "";
     if (this.state.pollDataArray !== null) {
-      pollList = this.state.pollDataArray.map((dataObject) => {
-        return <Poll
-          pollDataObject={dataObject}
+      pollList = this.state.pollReportData.map((dataObject) => {
+        return <PollReportCard
+          dataObject={dataObject}
         />
       })
     } else {
@@ -109,6 +108,6 @@ export default class PollList extends React.Component {
   }
 }
 
-PollList.propTypes = {
+PollReportList.propTypes = {
   accountName: PropTypes.string
 };

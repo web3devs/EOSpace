@@ -35,7 +35,10 @@ class LoginCard extends Component {
     };
   }
 
-  // TODO control width
+  requestAccess = () => {
+    // return loginObject from server
+  }
+
   render() {
     return (
       <div>
@@ -59,9 +62,14 @@ class LoginCard extends Component {
               // fullWidth
             />
             <Button
-              onClick={event => this.props.login()}
+              onClick={event => this.props.login('User')}
             >
-              Login
+              Login as User
+            </Button>
+            <Button
+              onClick={event => this.props.login('Owner')}
+            >
+              Login as Owner
             </Button>
           </CardContent>
         </Card>

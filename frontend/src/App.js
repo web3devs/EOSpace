@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 
 import EosBoilerplate from './eosBoilerplate';
 import PollList from './PollList';
+import PollReportList from './PollReportList';
 import LoginCard from './LoginCard';
 
 
@@ -20,24 +21,34 @@ class App extends Component {
     super(props);
 
     this.state = {
-      accountInfo: null,
+      group: null,
     }
   }
 
-  login = () => {
-    this.setState({
-      accountInfo: {
-        userName: "user A",
-        privateKey: "5K7mtrinTFrVTduSxizUc5hjXJEtTjVTsqSHeBHes1Viep86FP5",
-        publicKey: "EOS6kYgMTCh1iqpq9XGNQbEi8Q6k5GujefN9DSs55dcjVyFAq7B6b",
+  login = (group) => {
+    // if (group === 'User') {
+      this.setState({
+        group: group
+      })
+    // }
+    // if (group === 'Owner') {
+    //   this.setState({
+    //
+    //   })
+    // }
 
-      },
-    })
+    // this.setState({
+    //   accountInfo: {
+    //     userName: "user A",
+    //     privateKey: "5K7mtrinTFrVTduSxizUc5hjXJEtTjVTsqSHeBHes1Viep86FP5",
+    //     publicKey: "EOS6kYgMTCh1iqpq9XGNQbEi8Q6k5GujefN9DSs55dcjVyFAq7B6b",
+    //   },
+    // })
   }
 
   logout = () => {
     this.setState({
-      accountInfo: null,
+      group: null,
     })
   }
 
@@ -47,13 +58,12 @@ class App extends Component {
         <header className="App-header">
           <div className="spacer"
           >
-
           </div>
           <Typography variant="headline" component="h2">
             Blockchain 901
           </Typography>
           {/* login button */}
-          { this.state.accountInfo &&
+          { this.state.group &&
             <Button
               onClick={this.logout}
             >
@@ -63,17 +73,26 @@ class App extends Component {
         </header>
 
         {/* <EosBoilerplate /> */}
-        { this.state.accountInfo ?
+        { this.state.group ?
+
           <Card>
             <CardContent>
               <Typography variant="headline" component="h2">
-                Welcome {this.state.accountInfo.userName}
+                {this.state.group} View
               </Typography>
-              <PollList
-                accountInfo={this.state.accountInfo}
-              />
+              { this.state.group === 'User' &&
+                <PollList
+                  accountInfo={this.state.accountInfo}
+                />
+              }
+              { this.state.group === 'Owner' &&
+                <PollReportList
+                  accountInfo={this.state.accountInfo}
+                />
+              }
             </CardContent>
           </Card>
+
         :
           <LoginCard
             login={this.login}

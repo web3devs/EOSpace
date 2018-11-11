@@ -12,10 +12,11 @@ import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
-import ButtonTray from './ButtonTray';
+import Table from './Table';
+import VotesTray from './VotesTray';
+import Vote from './Vote';
 
-
-export default class Polls extends React.Component {
+export default class PollReportCard extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -40,10 +41,16 @@ export default class Polls extends React.Component {
               {props.text}
             </Typography>
 
-            <ButtonTray
-              action={props.actionName}
+            <VotesTray
               options={props.options}
             />
+            <Vote
+              option={props}
+            />
+            <Table
+
+            />
+
           </CardContent>
         </Card>
       </div>
@@ -51,13 +58,13 @@ export default class Polls extends React.Component {
   }
 }
 
-Polls.propTypes = {
-  pollDataObject: PropTypes.shape({
+PollReportCard.propTypes = {
+  dataObject: PropTypes.shape({
     title: PropTypes.string,
     text: PropTypes.string,
-    actionName: PropTypes.string,
-    // buttons
+    // actionName: PropTypes.string,
+    // votes
     options: PropTypes.array,
-    vote: PropTypes.string,
+    totalPercent: PropTypes.string,
   }).isRequired
 };
