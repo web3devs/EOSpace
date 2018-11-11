@@ -18,7 +18,41 @@
 // }
 
 export const pollDataArray = [
-  
+  {
+    title: 'Should we move the monthly meetings to a Friday instead of Thursdays?',
+    text: 'simplest poll',
+    actionName: 'yesNoAction',
+    // buttons
+    options: [
+      { text: 'yes', value: true },
+      { text: 'no', value: false }
+    ],
+    vote: null,
+  },
+  {
+    title: 'What blockchain technologies would you like to learn more about?',
+    text: 'multiple choice example poll',
+    actionName: 'multipleChoice',
+    // buttons
+    options: [
+      { text: 'EOS', value: 'A' },
+      { text: 'ActiveAether', value: 'B' },
+      { text: 'PIVX', value: 'C' },
+      { text: 'WP-ICO', value: 'D' }
+    ],
+    vote: null,
+  },
+  {
+    title: 'Would you come a 10 year bitcoin genesis block anniversary party?',
+    text: 'simplest poll',
+    actionName: 'yesNoAction',
+    // buttons
+    options: [
+      { text: 'yes', value: true },
+      { text: 'no', value: false }
+    ],
+    vote: null,
+  },
 ]
 
 export const pollReportData = [
