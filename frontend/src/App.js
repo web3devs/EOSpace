@@ -45,11 +45,6 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <div className="spacer">
-            <div className="">
-              <img src="http://blockchain901.brianwentzloff.com/wp-content/uploads/2018/08/blockchain901.png"/>
-            </div>
-          </div>
           <h2 className="header-title">
 
           </h2>
