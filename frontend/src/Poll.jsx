@@ -29,7 +29,10 @@ export default class Polls extends React.Component {
     const props = this.props.pollDataObject;
     return (
       <div>
-        <Card>
+        <Card classes={{
+          root: 'thin-card',
+           }
+        }>
           <CardContent>
             {/* title */}
             <Typography variant="headline" component="h2">
