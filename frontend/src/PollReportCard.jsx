@@ -80,6 +80,6 @@ PollReportCard.propTypes = {
     // actionName: PropTypes.string,
     // votes
     options: PropTypes.array,
-    totalPercent: PropTypes.string,
+    totalPercent: PropTypes.number,
   }).isRequired
 };

@@ -7,7 +7,7 @@ export default class EasyChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      width: this.props.options.length * 50 + 100
+      width: this.props.options.length * 75 + 100
     }
   }
 
@@ -26,7 +26,7 @@ export default class EasyChart extends React.Component {
         <BarChart
           colorBars
           axes
-          height={200}
+          height={250}
           width={this.state.width}
           data={this.formatData()}
         />

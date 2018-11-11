@@ -101,7 +101,6 @@ export default class PollReportList extends React.Component {
   render() {
     return (
       <div>
-        list current polls
         {this.generatePollList()}
       </div>
     );
