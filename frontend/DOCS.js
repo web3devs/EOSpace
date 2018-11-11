@@ -1,6 +1,7 @@
 pollData = {
   title: string,
   text: string,
+  actionName: string,
   // buttons
   options: [
     {
@@ -8,10 +9,21 @@ pollData = {
       value: value, // sent to contract
     },
     {
-      text: 'name', 
+      text: 'name',
       value: value,
     },
     {...}
   ],
-  vote: value,
+  vote: value, // null (not yet voted) or options.value that was picked
 }
+
+proptypeArray = [
+  {
+    text: PropTypes.string, // displays in button
+    value: PropTypes.string, // sent to contract
+  },
+  {
+    text: PropTypes.string,
+    value: PropTypes.string,
+  },
+],
