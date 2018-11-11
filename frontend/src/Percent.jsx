@@ -40,6 +40,7 @@ export default class Vote extends Component {
           axes
           height={250}
           width={150}
+          yDomainRange={[0, 100]}
           data={this.formatData(this.props.percent)}
         />
 
