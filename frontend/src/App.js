@@ -45,14 +45,20 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <p>
-            EOS Spaces
-          </p>
+          <div className="spacer"
+          >
+
+          </div>
+          <Typography variant="headline" component="h2">
+            Blockchain 901
+          </Typography>
           {/* login button */}
           { this.state.accountInfo &&
             <Button
               onClick={this.logout}
-            />
+            >
+              Logout
+            </Button>
           }
         </header>
 

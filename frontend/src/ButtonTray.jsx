@@ -68,10 +68,10 @@ export default class ButtonTray extends React.Component {
 
   // map over options - create buttons
   generateButtons = () => {
-    this.props.options.map((option) => {
+    let buttons = this.props.options.map((option) => {
       console.log('OPTION', option);
       return <Button
-        key={option.name}
+        key={option.text}
         variant="contained"
         color="primary"
         // className={classes.formButton}
@@ -80,13 +80,14 @@ export default class ButtonTray extends React.Component {
         {option.text}
       </Button>
     })
+    return buttons;
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="button-tray">
-        ButtonTray
-        {this.generateButtons}
+        {this.generateButtons()}
       </div>
     );
   }
