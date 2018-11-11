@@ -45,13 +45,14 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <div className="spacer"
-          >
-
+          <div className="spacer">
+            <div className="">
+              <img src="http://blockchain901.brianwentzloff.com/wp-content/uploads/2018/08/blockchain901.png"/>
+            </div>
           </div>
-          <Typography variant="headline" component="h2">
-            Blockchain 901
-          </Typography>
+          <h2 className="header-title">
+
+          </h2>
           {/* login button */}
           { this.state.accountInfo &&
             <Button
@@ -66,9 +67,9 @@ class App extends Component {
         { this.state.accountInfo ?
           <Card>
             <CardContent>
-              <Typography variant="headline" component="h2">
+              <h2 className="header-stuff">
                 Welcome {this.state.accountInfo.userName}
-              </Typography>
+              </h2>
               <PollList
                 accountInfo={this.state.accountInfo}
               />
