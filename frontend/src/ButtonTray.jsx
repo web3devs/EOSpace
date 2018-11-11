@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Api, JsonRpc, RpcError, JsSignatureProvider } from 'eosjs'; // https://github.com/EOSIO/eosjs
 import { TextDecoder, TextEncoder } from 'text-encoding';
+import { Api, JsonRpc, RpcError, JsSignatureProvider } from 'eosjs'; // https://github.com/EOSIO/eosjs
+
 
 import Button from '@material-ui/core/Button';
+
+const endpoint = 'http://localhost:7777';
 
 export default class ButtonTray extends React.Component {
   constructor(props) {
@@ -16,6 +19,10 @@ export default class ButtonTray extends React.Component {
   }
 
   async fireAction(action, value) {
+    console.log('getTable');
+      
+      
+    
     // event.preventDefault();
     //
     // // collect form data
@@ -41,33 +48,33 @@ export default class ButtonTray extends React.Component {
     // }
     //
     // // eosjs function call: connect to the blockchain
-    // const rpc = new JsonRpc(endpoint);
-    // const signatureProvider = new JsSignatureProvider([privateKey]);
-    // const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
-    // try {
-    //   const result = await api.transact({
-    //     actions: [{
-    //       account: "notechainacc",
-    //       name: actionName,
-    //       authorization: [{
-    //         actor: account,
-    //         permission: 'active',
-    //       }],
-    //       data: actionData,
-    //     }]
-    //   }, {
-    //     blocksBehind: 3,
-    //     expireSeconds: 30,
-    //   });
+    const rpc = new JsonRpc(endpoint);
+    const signatureProvider = new JsSignatureProvider(['5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3']);
+    const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
+    try {
+       const result = await api.transact({
+         actions: [{
+           account: "survey",
+           name: "addvote",
+           authorization: [{
+             actor: "eosio",
+             permission: 'active',
+           }],
+           data: {"user":"alice", "vote":"yes", "data":"10"},
+         }]
+       }, {
+         blocksBehind: 3,
+         expireSeconds: 30,
+       });
     //
-    //   console.log(result);
-    //   this.getTable();
-    // } catch (e) {
-    //   console.log('Caught exception: ' + e);
-    //   if (e instanceof RpcError) {
-    //      console.log(JSON.stringify(e.json, null, 2));
-    //    }
-    //  }
+       console.log(result);
+       this.getTable();
+     } catch (e) {
+       console.log('Caught exception: ' + e);
+       if (e instanceof RpcError) {
+          console.log(JSON.stringify(e.json, null, 2));
+        }
+      }
     this.props.selected();
     this.setState({ buttonColor: "disabled" })
   }
