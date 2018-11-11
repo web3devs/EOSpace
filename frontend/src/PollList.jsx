@@ -78,7 +78,7 @@ export default class PollList extends React.Component {
     /* testing vvvvv */
     let pollDataArray = [
       {
-        title: 'y/n example',
+        title: 'Should we move the monthly meetings to a Friday instead of Thursdays?',
         text: 'simplest poll',
         actionName: 'yesNoAction',
         // buttons
@@ -89,20 +89,20 @@ export default class PollList extends React.Component {
         vote: null,
       },
       {
-        title: 'multiple choice ',
+        title: 'What blockchain technologies would you like to learn more about?',
         text: 'multiple choice example poll',
         actionName: 'multipleChoice',
         // buttons
         options: [
-          { text: 'A', value: 'A' },
-          { text: 'B', value: 'B' },
-          { text: 'C', value: 'C' },
-          { text: 'D', value: 'D' }
+          { text: 'EOS', value: 'A' },
+          { text: 'ActiveAether', value: 'B' },
+          { text: 'PIVX', value: 'C' },
+          { text: 'WP-ICO', value: 'D' }
         ],
         vote: null,
       },
       {
-        title: 'y/n example',
+        title: 'Would you come a 10 year bitcoin genesis block anniversary party?',
         text: 'simplest poll',
         actionName: 'yesNoAction',
         // buttons
