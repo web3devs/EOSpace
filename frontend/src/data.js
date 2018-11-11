@@ -68,8 +68,8 @@ export const pollReportData = [
     totalPercent: 51,
     weightedText: "Number of Meetups attended",
     weightedData: [
-      { userName: "", vote: "", data: "" },
-      { userName: "", vote: "", data: "" },
+      { userName: "alice", vote: "yes", data: "10" },
+      { userName: "bob", vote: "no", data: "1" },
       { userName: "", vote: "", data: "" },
       { userName: "", vote: "", data: "" },
       { userName: "", vote: "", data: "" },
