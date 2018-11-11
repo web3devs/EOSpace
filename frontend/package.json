@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.4.0",
+    "canvasjs": "^1.8.1",
     "eosjs": "^20.0.0-beta2",
     "react": "^16.6.1",
+    "react-bar-chart": "^0.1.2",
     "react-dom": "^16.6.1",
     "react-scripts": "2.1.1",
     "text-encoding": "^0.7.0"

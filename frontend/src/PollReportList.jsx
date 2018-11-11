@@ -19,7 +19,7 @@ export default class PollReportList extends React.Component {
     super(props);
 
     this.state = {
-      pollDataArray: null,
+      pollReportData: null,
       // done: false
     }
   }
@@ -86,7 +86,7 @@ export default class PollReportList extends React.Component {
   // generate list
   generatePollList = () => {
     let pollList = "";
-    if (this.state.pollDataArray !== null) {
+    if (this.state.pollReportData !== null) {
       pollList = this.state.pollReportData.map((dataObject) => {
         return <PollReportCard
           dataObject={dataObject}
