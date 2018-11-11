@@ -25,15 +25,15 @@ class [[eosio::contract]] survey : public eosio::contract
     }
 
     [[eosio::action]]
-    void droptable(){
-      polls_index questions(_code, _code.value); // code, scope
+    void droppollres(){
+      pollres_index questions(_code, _code.value); // code, scope
       for(auto itr = questions.begin(); itr != questions.end();) {
         itr = questions.erase(itr);
       }
     }
 
     [[eosio::action]]
-    void addpollres(name user, std::string question,std::string actionName) {
+    void addpollres(name user, std::string question,std::string actionName, std::string result1,std::string result2) {
 
       pollres_index questions(_code, _code.value);
 
@@ -41,8 +41,21 @@ class [[eosio::contract]] survey : public eosio::contract
           row.key = questions.available_primary_key();
           row.question = question;
           row.actionName = actionName;
+          row.result1 = result1;
+          row.result2 = result2;
         });
       
+    }
+
+    [[eosio::action]]
+    void addvote(name user, std::string vote, std::string data) {
+      uservote_index questions(_code, _code.value);
+
+      questions.emplace(user, [&]( auto& row){
+        row.user = user;
+        row.vote = vote;
+        row.data = data;
+      });
     }
 
 
@@ -64,14 +77,26 @@ class [[eosio::contract]] survey : public eosio::contract
       uint64_t key;
       std::string question;
       std::string actionName;
+      std::string result1;
+      std::string result2;
 
       uint64_t primary_key() const { return key;}
     };
 
     typedef eosio::multi_index<"pollresults"_n, pollResult> pollres_index;
 
+    struct [[eosio::table]] userVote {
+      name user;
+      std::string vote;
+      std::string data;
+
+      uint64_t primary_key() const { return user.value;}
+    };
+
+    typedef eosio::multi_index<"uservotes"_n, userVote> uservote_index;
+
 
 
    
 };
-EOSIO_DISPATCH( survey, (upsert)(droptable)(addpollres))
+EOSIO_DISPATCH( survey, (upsert)(droppollres)(addpollres)(addvote))
