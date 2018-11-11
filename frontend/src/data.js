@@ -57,8 +57,8 @@ export const pollDataArray = [
 
 export const pollReportData = [
   {
-    title: 'Move Meetings to Friday?',
-    text: 'We are ',
+    title: 'Should we move the monthly meetings to a Friday instead of Thursdays?',
+    text: '',
     actionName: 'yesNoAction',
     // buttons
     options: [
@@ -66,39 +66,7 @@ export const pollReportData = [
       { text: 'no', value: 30 }
     ],
     vote: null,
-  },
-  {
-    title: 'multiple choice ',
-    text: 'multiple choice example poll',
-    actionName: 'multipleChoice',
-    // buttons
-    options: [
-      { text: 'A', value: 20 },
-      { text: 'B', value: 12 },
-      { text: 'C', value: 3 },
-      { text: 'D', value: 9 }
-    ],
-    totalPercent: 35,
-    weighted: [
-      { userName: "", vote: "", data: "" },
-      { userName: "", vote: "", data: "" },
-      { userName: "", vote: "", data: "" },
-      { userName: "", vote: "", data: "" },
-      { userName: "", vote: "", data: "" },
-      { userName: "", vote: "", data: "" }
-    ]
-  },
-  {
-    title: 'y/n example',
-    text: 'simplest poll',
-    actionName: 'yesNoAction',
-    // buttons
-    options: [
-      { text: 'yes', value: true },
-      { text: 'no', value: false }
-    ],
-    vote: null,
-  },
+  }
 ]
 
 // proptypeArray = [

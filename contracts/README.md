@@ -36,8 +36,11 @@ cleos push action survey upsert '["alice", "alice", "Should we move the monthly 
 cleos push action survey upsert '["alice", "alice", "What blockchain technologies would you like to learn more about?", "multipleChoice"]' -p alice@active
 cleos push action survey upsert '["alice", "alice", "Would you come a 10 year bitcoin genesis block anniversary party?", "yesNoAction"]' -p alice@active
 
-cleos get table survey survey poll
-cleos get table survey survey poll --lower "alice" --upper "alice" --key "accountname"
+
+cleos push action survey addpollres '["alice", "Should we move the monthly meetings to a Friday instead of Thursdays?", "yesNoAction", "60", "30"]' -p alice@active
+
+cleos get table survey survey pollitems
+cleos get table survey survey pollres
 
 
 

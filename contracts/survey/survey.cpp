@@ -32,6 +32,19 @@ class [[eosio::contract]] survey : public eosio::contract
       }
     }
 
+    [[eosio::action]]
+    void addpollres(name user, std::string question,std::string actionName) {
+
+      pollres_index questions(_code, _code.value);
+
+        questions.emplace(user, [&]( auto& row ) {
+          row.key = questions.available_primary_key();
+          row.question = question;
+          row.actionName = actionName;
+        });
+      
+    }
+
 
   private:
     
@@ -47,8 +60,18 @@ class [[eosio::contract]] survey : public eosio::contract
 
     typedef eosio::multi_index<"pollitems"_n, pollItem> polls_index;
 
+    struct [[eosio::table]] pollResult {
+      uint64_t key;
+      std::string question;
+      std::string actionName;
+
+      uint64_t primary_key() const { return key;}
+    };
+
+    typedef eosio::multi_index<"pollresults"_n, pollResult> pollres_index;
+
 
 
    
 };
-EOSIO_DISPATCH( survey, (upsert))
+EOSIO_DISPATCH( survey, (upsert)(droptable)(addpollres))
