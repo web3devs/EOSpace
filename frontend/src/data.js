@@ -65,7 +65,16 @@ export const pollReportData = [
       { text: 'yes', value: 60 },
       { text: 'no', value: 30 }
     ],
-    vote: null,
+    totalPercent: 51,
+    weightedText: "Number of Meetups attended",
+    weightedData: [
+      { userName: "", vote: "", data: "" },
+      { userName: "", vote: "", data: "" },
+      { userName: "", vote: "", data: "" },
+      { userName: "", vote: "", data: "" },
+      { userName: "", vote: "", data: "" },
+      { userName: "", vote: "", data: "" }
+    ]
   },
   {
     title: 'multiple choice ',
@@ -79,7 +88,8 @@ export const pollReportData = [
       { text: 'D', value: 9 }
     ],
     totalPercent: 35,
-    weighted: [
+    weightedText: "Number of Meetups attended",
+    weightedData: [
       { userName: "", vote: "", data: "" },
       { userName: "", vote: "", data: "" },
       { userName: "", vote: "", data: "" },
@@ -97,7 +107,16 @@ export const pollReportData = [
       { text: 'yes', value: true },
       { text: 'no', value: false }
     ],
-    vote: null,
+    totalPercent: 20,
+    weightedText: "Number of Meetups attended",
+    weightedData: [
+      { userName: "", vote: "", data: "" },
+      { userName: "", vote: "", data: "" },
+      { userName: "", vote: "", data: "" },
+      { userName: "", vote: "", data: "" },
+      { userName: "", vote: "", data: "" },
+      { userName: "", vote: "", data: "" }
+    ]
   },
 ]
 

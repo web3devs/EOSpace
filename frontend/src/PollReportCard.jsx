@@ -15,7 +15,7 @@ import Button from '@material-ui/core/Button';
 import SimpleChart from './SimpleChart';
 import SimpleTable from './SimpleTable';
 // import VotesTray from './VotesTray';
-import Vote from './Vote';
+import Percent from './Percent';
 
 export default class PollReportCard extends React.Component {
   constructor(props) {
@@ -31,7 +31,7 @@ export default class PollReportCard extends React.Component {
     const props = this.props.dataObject;
     return (
       <div>
-        <Card>
+        <Card style={{ height: 300, margin: 20 }}>
           <CardContent>
 
             <Typography variant="headline" component="h2">
@@ -42,21 +42,27 @@ export default class PollReportCard extends React.Component {
               {props.text}
             </Typography>
 
-            {/* <VotesTray
-              options={props.options}
-            /> */}
-            <SimpleChart
-              options={props.options}
-            />
-            { props.totalPercent &&
-              <Vote
-                option={props.totalPercent}
+            <div className="row">
+              {/* <VotesTray
+                options={props.options}
+              /> */}
+              <SimpleChart
+                options={props.options}
               />
-            }
-            <SimpleTable
+              { props.totalPercent &&
+                <Percent
+                  percent={props.totalPercent}
+                />
+              }
 
-            />
+              <div className="col">
+                {props.weightedText}
+                <SimpleTable
+                  rows={props.weightedData}
+                />
+              </div>
 
+            </div>
           </CardContent>
         </Card>
       </div>
