@@ -26,7 +26,7 @@ export default class PollList extends React.Component {
 
   componentDidMount() {
     this.getPolls(this.props.accountInfo); // UI testing
-    // this.getTable();
+    // this.getTable(); 
   }
 
   // componentDidUpdate(prevProps, prevState) {
