@@ -1,22 +1,3 @@
-// pollData = {
-//   title: string,
-//   text: string,
-//   actionName: string,
-//   // buttons
-//   options: [
-//     {
-//       text: 'name', // displays in button
-//       value: value, // sent to contract
-//     },
-//     {
-//       text: 'name',
-//       value: value,
-//     },
-//     {...}
-//   ],
-//   vote: value, // null (not yet voted) or options.value that was picked
-// }
-
 export const pollDataArray = [
   {
     title: 'Should we move the monthly meetings to a Friday instead of Thursdays?',
@@ -119,14 +100,3 @@ export const pollReportData = [
     ]
   },
 ]
-
-// proptypeArray = [
-//   {
-//     text: PropTypes.string, // displays in button
-//     value: PropTypes.string, // sent to contract
-//   },
-//   {
-//     text: PropTypes.string,
-//     value: PropTypes.string,
-//   },
-// ],

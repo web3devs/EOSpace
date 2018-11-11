@@ -20,34 +20,7 @@ export default class ButtonTray extends React.Component {
 
   async fireAction(action, value) {
     console.log('getTable');
-      
-      
-    
-    // event.preventDefault();
-    //
-    // // collect form data
-    // let account = event.target.account.value;
-    // let privateKey = event.target.privateKey.value;
-    // let note = event.target.note.value;
-    //
-    // // prepare variables for the switch below to send transactions
-    // let actionName = "";
-    // let actionData = {};
-    //
-    // // define actionName and action according to event type
-    // switch (event.type) {
-    //   case "submit":
-    //     actionName = "update";
-    //     actionData = {
-    //       user: account,
-    //       note: note,
-    //     };
-    //     break;
-    //   default:
-    //     return;
-    // }
-    //
-    // // eosjs function call: connect to the blockchain
+    // eosjs function call: connect to the blockchain
     const rpc = new JsonRpc(endpoint);
     const signatureProvider = new JsSignatureProvider(['5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3']);
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });

@@ -12,6 +12,7 @@ import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
+import EasyChart from './EasyChart';
 import SimpleChart from './SimpleChart';
 import SimpleTable from './SimpleTable';
 // import VotesTray from './VotesTray';
@@ -43,12 +44,14 @@ export default class PollReportCard extends React.Component {
             </Typography>
 
             <div className="row">
-              {/* <VotesTray
+
+              {/* <SimpleChart
                 options={props.options}
               /> */}
-              <SimpleChart
+              <EasyChart
                 options={props.options}
               />
+
               { props.totalPercent &&
                 <Percent
                   percent={props.totalPercent}

@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
 
-import EosBoilerplate from './eosBoilerplate';
 import PollList from './PollList';
 import PollReportList from './PollReportList';
 import LoginCard from './LoginCard';
 
+import './App.css';
 
 
 class App extends Component {
