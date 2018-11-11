@@ -19,8 +19,8 @@
 
 export const pollDataArray = [
   {
-    title: 'Move Meetings to Friday?',
-    text: 'We are ',
+    title: 'Should we move the monthly meetings to a Friday instead of Thursdays?',
+    text: 'simplest poll',
     actionName: 'yesNoAction',
     // buttons
     options: [
@@ -30,20 +30,20 @@ export const pollDataArray = [
     vote: null,
   },
   {
-    title: 'multiple choice ',
+    title: 'What blockchain technologies would you like to learn more about?',
     text: 'multiple choice example poll',
     actionName: 'multipleChoice',
     // buttons
     options: [
-      { text: 'A', value: 'A' },
-      { text: 'B', value: 'B' },
-      { text: 'C', value: 'C' },
-      { text: 'D', value: 'D' }
+      { text: 'EOS', value: 'A' },
+      { text: 'ActiveAether', value: 'B' },
+      { text: 'PIVX', value: 'C' },
+      { text: 'WP-ICO', value: 'D' }
     ],
     vote: null,
   },
   {
-    title: 'y/n example',
+    title: 'Would you come a 10 year bitcoin genesis block anniversary party?',
     text: 'simplest poll',
     actionName: 'yesNoAction',
     // buttons
@@ -79,6 +79,14 @@ export const pollReportData = [
       { text: 'D', value: 9 }
     ],
     totalPercent: 35,
+    weighted: [
+      { userName: "", vote: "", data: "" },
+      { userName: "", vote: "", data: "" },
+      { userName: "", vote: "", data: "" },
+      { userName: "", vote: "", data: "" },
+      { userName: "", vote: "", data: "" },
+      { userName: "", vote: "", data: "" }
+    ]
   },
   {
     title: 'y/n example',

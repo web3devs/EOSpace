@@ -56,12 +56,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <div className="spacer"
-          >
-          </div>
-          <Typography variant="headline" component="h2">
-            Blockchain 901
-          </Typography>
+          <h2 className="header-title">
+
+          </h2>
           {/* login button */}
           { this.state.group &&
             <Button
@@ -77,9 +74,9 @@ class App extends Component {
 
           <Card>
             <CardContent>
-              <Typography variant="headline" component="h2">
+              <h2 className="header-stuff">
                 {this.state.group} View
-              </Typography>
+              </h2>
               { this.state.group === 'User' &&
                 <PollList
                   accountInfo={this.state.accountInfo}
