@@ -59,7 +59,8 @@ export default class Polls extends React.Component {
               {props.title}
             </Typography>
 
-            <Typography style={{fontSize:12}}
+            <Typography
+              // style={{fontSize:12}}
               style={ (this.state.selected ? { fontSize:12, color: "#d9d9d9" } : { fontSize:12, color: "textSecondary" })}
               gutterBottom
             >

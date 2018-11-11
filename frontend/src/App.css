@@ -51,6 +51,12 @@
   justify-content: space-between;
 }
 
+.row-sa {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .col {
   /* height: 150px; */
   display: flex;
@@ -60,6 +66,7 @@
 
 .chart-bar {
   background-color: red;
+  height: 75px;
 }
 
 .weights-table {
@@ -76,8 +83,9 @@
   text-overflow: ellipsis; */
 }
 
-.poll-list {
-
+.percent {
+  height: 200px;
+  margin: 0 20px;
 }
 
 .thin-card {
