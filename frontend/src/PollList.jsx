@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button';
 
 import Poll from './Poll';
 
-const endpoint = 'http://localhost:8888';
+const endpoint = 'http://localhost:7777';
 
 export default class PollList extends React.Component {
   constructor(props) {
@@ -25,6 +25,7 @@ export default class PollList extends React.Component {
 
   componentDidMount() {
     this.getPolls(this.props.accountInfo);
+    this.getTable();
   }
 
   // componentDidUpdate(prevProps, prevState) {
@@ -33,16 +34,19 @@ export default class PollList extends React.Component {
   //   }
   // }
 
-  // getTable() {
-  //   const rpc = new JsonRpc(endpoint);
-  //   rpc.get_table_rows({
-  //     "json": true,
-  //     "code": "notechainacc",   // contract who owns the table
-  //     "scope": "notechainacc",  // scope of the table
-  //     "table": "notestruct",    // name of the table as specified by the contract abi
-  //     "limit": 100,
-  //   }).then(result => this.setState({ noteTable: result.rows }));
-  // }
+  getTable() {
+    console.log('getTable');
+    const rpc = new JsonRpc(endpoint);
+    const signatureProvider = new JsSignatureProvider(['5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3']);
+    const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
+    rpc.get_table_rows({
+       "json": true,
+       "code": "survey",   // contract who owns the table
+       "scope": "survey",  // scope of the table
+       "table": "poll",    // name of the table as specified by the contract abi
+       "limit": 100,
+     }).then(result => console.log(result));
+  }
 
 
   // get polls for this user
