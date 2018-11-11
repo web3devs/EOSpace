@@ -11,32 +11,32 @@ class [[eosio::contract]] survey : public eosio::contract
     survey(name receiver, name code,  datastream<const char*> ds): contract(receiver, code, ds) {}
 
     [[eosio::action]]
-    void upsert(name user, std::string question) {
-      require_auth( user );
+    void upsert(name user, std::string accountname, std::string question) {
+
       poll_index questions(_code, _code.value);
 
         questions.emplace(user, [&]( auto& row ) {
           row.key = questions.available_primary_key();
-          row.accountname = user;
+          row.accountname = accountname;
           row.question = question;
         });
       
     }
 
-    [[eosio::action]]
-    void somethingelse() {}
-
-
   private:
     struct [[eosio::table]] poll {
       uint64_t key;
-      name accountname;
+      std::string accountname;
       std::string question;
 
       uint64_t primary_key() const { return key;}
+      std::string by_name() const { return accountname;}
     };
-  
+
     typedef eosio::multi_index<"poll"_n, poll> poll_index;
+
+
+
    
 };
 EOSIO_DISPATCH( survey, (upsert))
