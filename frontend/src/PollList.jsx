@@ -25,7 +25,7 @@ export default class PollList extends React.Component {
   }
 
   componentDidMount() {
-    this.getPolls(this.props.accountInfo);
+    //this.getPolls(this.props.accountInfo);
     this.getTable();
   }
 
@@ -44,9 +44,41 @@ export default class PollList extends React.Component {
        "json": true,
        "code": "survey",   // contract who owns the table
        "scope": "survey",  // scope of the table
-       "table": "poll",    // name of the table as specified by the contract abi
+       "table": "pollitems",    // name of the table as specified by the contract abi
        "limit": 100,
-     }).then(result => console.log(result));
+     }).then(result => {
+        console.log(result);
+        for (var i=0; i < result['rows'].length; i++ ) {
+            console.log(result['rows'][i]);
+            var options = [];
+            if (result['rows'][i]['actionName'] == "yesNoAction") {
+              options = [
+                { text: 'yes', value: true },
+                { text: 'no', value: false }
+              ];
+            } else {
+              options =  [
+                { text: 'EOS', value: 'A' },
+                { text: 'ActiveAether', value: 'B' },
+                { text: 'PIVX', value: 'C' },
+                { text: 'WP-ICO', value: 'D' }
+              ]
+            }
+            const pollDataItem = {
+              title: result['rows'][i]['question'],
+              text: '',
+              actionName: 'yesNoAction',
+              // buttons
+              options: options,
+              vote: null,
+            }
+            pollDataArray.push(pollDataItem);
+            
+        }
+        this.setState({
+          pollDataArray: pollDataArray
+        });
+     });
   }
 
 
@@ -83,9 +115,9 @@ export default class PollList extends React.Component {
     /* contract ^^^^^ */
     /* testing vvvvv */
 
-    this.setState({
+    /*this.setState({
       pollDataArray: pollDataArray
-    });
+    });*/
   }
 
   // generate list

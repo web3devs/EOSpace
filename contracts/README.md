@@ -27,9 +27,14 @@ cleos set contract survey /Users/brianwentzloff/Dropbox/projects/eospace/EOSpace
 
 #cleos push action survey csurvey [] -p survey
 
-cleos push action survey upsert '["alice", "what is love", "op1","value", "op2","value", "op3","value", "op4","value"]' -p alice@active
+cleos push action survey upsert '["alice", "alice", "what is love", "this is text"]' -p alice@active
 cleos push action survey upsert '["bob", "what is hate"]' -p bob@active
-cleos push action survey del '["0"]' -p alice@active
+cleos push action survey droptable [] -p alice@active
+
+
+cleos push action survey upsert '["alice", "alice", "Should we move the monthly meetings to a Friday instead of Thursdays?", "yesNoAction"]' -p alice@active
+cleos push action survey upsert '["alice", "alice", "What blockchain technologies would you like to learn more about?", "multipleChoice"]' -p alice@active
+cleos push action survey upsert '["alice", "alice", "Would you come a 10 year bitcoin genesis block anniversary party?", "yesNoAction"]' -p alice@active
 
 cleos get table survey survey poll
 cleos get table survey survey poll --lower "alice" --upper "alice" --key "accountname"
